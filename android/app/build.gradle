@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services" // Moved this to plugins block
+}
+
+android {
+    namespace "com.example.shirt"  // Ensure this matches your applicationId
+    compileSdk 34  // Set to a valid compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.example.shirt"  // Keep this consistent
+        minSdk 21  // Set a valid minSdkVersion
+        targetSdk 34  // Set a valid targetSdkVersion
+        versionCode 1  // Ensure these match your app settings
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+flutter {
+    source "../.."
+}
+
+dependencies {
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.8.0"
+    implementation "com.google.ar.sceneform:core:1.8.0"
+}
